@@ -32,12 +32,14 @@ const Image = styled.img`
 interface PhotoGridProps {
   uploadedPhoto: string;
   otherPhotos: string[];
+  onShuffle: () => void;
   onReset: () => void;
 }
 
-const PhotoGrid: React.FC<PhotoGridProps> = ({ uploadedPhoto, otherPhotos, onReset }) => {
+const PhotoGrid: React.FC<PhotoGridProps> = ({ uploadedPhoto, otherPhotos, onShuffle, onReset }) => {
   const photos = [...otherPhotos];
   photos.splice(4, 0, uploadedPhoto);
+
 
   const photoContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -53,17 +55,20 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ uploadedPhoto, otherPhotos, onRes
 
   return (
     <Container>
-      <h2>결과입니다!</h2>
+      <h1>결과입니다!</h1>
       <PhotoContainer ref={photoContainerRef}>
         {photos.map((photo, index) => (
           <Image key={index} src={photo} alt={`Photo ${index + 1}`} crossOrigin="anonymous"/>
         ))}
       </PhotoContainer>
-      <Button type="primary" size='large' onClick={onReset} style={{ marginTop: '20px', width: '100%' }}>
-        처음으로 돌아가기
-      </Button>
-      <Button type="default" size='large' onClick={handleDownload} style={{ marginTop: '10px', width: '100%' }}>
+      <Button type="primary" size='large' onClick={handleDownload} style={{ marginTop: '20px', width: '100%' }}>
         다운로드
+      </Button>
+      <Button type="default" size='large' onClick={onShuffle} style={{ marginTop: '10px', width: '100%' }}>
+        다른 사진들과 비교하기
+      </Button>
+      <Button type="text" size='large' onClick={onReset} style={{ marginTop: '10px', width: '100%' }}>
+        처음으로 돌아가기
       </Button>
     </Container>
   );

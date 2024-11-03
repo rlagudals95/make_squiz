@@ -9,8 +9,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f0f2f5;
-  padding: 0 2rem;
   gap: 2rem;
   width: 100%;
   max-width: 30rem;
@@ -35,7 +33,7 @@ const PhotoUpload: React.FC<PhotoUploadProps> = ({ onUpload }) => {
 
   return (
     <Container>
-      <h2>Upload a Photo</h2>
+      <h1>사진을 업로드해주세요</h1>
       <div style={{ width: '100%', maxHeight: '40rem', backgroundColor: '#e0e0e0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {file && <img src={URL.createObjectURL(file)} alt="Uploaded" style={{ width: '100%', height: '100%', objectFit: 'cover', aspectRatio: '1 / 1' }} />}
       </div>

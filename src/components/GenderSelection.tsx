@@ -31,7 +31,7 @@ interface GenderSelectionProps {
 const GenderSelection: React.FC<GenderSelectionProps> = ({ onSelectGender }) => {
   return (
     <Container>
-      <h2>성별을 선택해주세요</h2>
+      <h1>성별을 선택해주세요</h1>
       <ButtonContainer>
         <Button type="primary" size='large' style={{ backgroundColor: 'blue', height: '3rem', borderColor: 'blue', fontWeight: 'bold' }} onClick={() => onSelectGender('male')}>남성</Button>
         <Button type="primary" size='large' style={{ backgroundColor: 'pink', height: '3rem', borderColor: 'pink', color: 'black', fontWeight: 'bold' }} onClick={() => onSelectGender('female')}>여성</Button>

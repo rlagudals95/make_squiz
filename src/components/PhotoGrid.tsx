@@ -18,13 +18,12 @@ const PhotoContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 3px;
   width: 100%;
-  max-width: 40rem;
   max-height: 40rem;
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   aspect-ratio: 1 / 1;
 `;
